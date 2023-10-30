@@ -146,20 +146,50 @@ solicita a digita��o de cada um deles
 */
 	void entradaDeDados()
 	{
+		int num;
+		do {
+        std::cout << "Digite uma idade (0 para sair): ";
+        std::cin >> num;
+		lista.push_back(num);
+    } while(num != 0);
+
 	}
 
 	void mostraMediana()
 	{
 		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
+		int tamanhoVetor=lista.size();
+		if (tamanhoVetor %2 == 0){ 
+		int auxiliar = tamanhoVetor/2;
+		int auxiliar = (lista[auxiliar] + lista[auxiliar-1])/2; 
+		cout<< "O valor da mediana é: "<<auxiliar; 
+		} else {
+			int auxiliar= (tamanhoVetor-1)/2;
+			cout<< "O valor da mediana e: "<<lista[auxiliar];
+		}
 	}
 
 	void mostraMenor()
 	{
 		cout << "Aqui vai mostrar a menor das idades" << endl;
+		int menor=0, auxiliar=0; 
+		for (int elemento : lista) {
+			if (elemento<=menor){
+				menor = elemento;
+			}
+    }
+		cout<< "O menor elemento é: "<<menor;
 	}
 	void mostraMaior()
 	{
 		cout << "aqui vai mostrar a maior das idades" << endl;
+		int maior=0, auxiliar=0; 
+		for (int elemento : lista) {
+			if (elemento>=maior){
+				maior = elemento;
+			}
+    }
+	cout<< "O maior elemento é: "<<maior;
 	}
 };
 
