@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -46,34 +47,79 @@ public:
 	virtual void mostraMaior() = 0;
 };
 
-class ListaNomes : public Lista
-{
-	vector<string> lista;
+class ListaNomes: public Lista{
+    vector<string> lista;
 
 public:
-	/*
-	O m�todo abaixo pergunta ao usu�rios quantos
-	elementos v�o existir na lista e depois
-	solicita a digita��o de cada um deles
-	*/
-	void entradaDeDados()
-	{
-		lista.push_back("Teste");
-	}
+    void entradaDeDados()
+    {
+        while (true)
+        {
+            string nome;
+            cout << "Digite o nome (ou digite 0 para sair): ";
+            cin >> nome;
+            
+            if (nome == "0") {
+                break; // Sai do loop quando o usuário digita "0"
+            }
+            
+            lista.push_back(nome);
+        }
+    }
 
-	void mostraMediana()
-	{
-		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
-	}
+    void mostraMediana()
+    {
+        if (lista.empty())
+        {
+            cout << "A lista esta vazia. Nao e possivel calcular a mediana." << endl;
+            return;
+        }
 
-	void mostraMenor()
-	{
-		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
-	}
-	void mostraMaior()
-	{
-		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
-	}
+        vector<string> listaOrdenada = lista;
+        sort(listaOrdenada.begin(), listaOrdenada.end());
+
+        int tamanho = listaOrdenada.size();
+        if (tamanho % 2 == 0)
+        {
+            int meio1 = (tamanho - 1) / 2;
+            int meio2 = tamanho / 2;
+            string mediana1 = listaOrdenada[meio1];
+            string mediana2 = listaOrdenada[meio2];
+            cout << "A mediana e: " << mediana1 << " e " << mediana2 << endl;
+        }
+        else
+        {
+            int meio = tamanho / 2;
+            string mediana = listaOrdenada[meio];
+            cout << "A mediana e: " << mediana << endl;
+        }
+    }
+
+    void mostraMenor()
+    {
+        if (lista.empty())
+        {
+            cout << "A lista esta vazia. Nao ha nome para mostrar." << endl;
+        }
+        else
+        {
+            string menorNome = *min_element(lista.begin(), lista.end());
+            cout << "O primeiro nome alfabeticamente e: " << menorNome << endl;
+        }
+    }
+
+    void mostraMaior()
+    {
+        if (lista.empty())
+        {
+            cout << "A lista esta vazia. Nao ha nome para mostrar." << endl;
+        }
+        else
+        {
+            string maiorNome = *max_element(lista.begin(), lista.end());
+            cout << "O ultimo nome alfabeticamente e: " << maiorNome << endl;
+        }
+    }
 };
 
 class ListaDatas : public Lista
