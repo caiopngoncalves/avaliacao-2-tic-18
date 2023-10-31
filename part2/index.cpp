@@ -225,6 +225,42 @@ public:
 			cout << "A última data cronologicamente é: " << lista.front().toString() << endl;
 		}
 	}
+	void listarEmOrdem() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de datas está vazia." << endl;
+			return;
+		}
+
+		cout << "Lista de datas em ordem cronológica:" << endl;
+		sort(lista.begin(), lista.end(), [](Data &d1, Data &d2)
+			 { return Data::compara(d1, d2) < 0; });
+
+		for (Data &data : lista)
+		{
+			cout << data.toString() << endl;
+		}
+	}
+
+	void mostrarNPrimeiros() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de datas está vazia." << endl;
+			return;
+		}
+
+		int n;
+		cout << "Digite um valor n de idades: " << endl;
+		cin >> n;
+
+		cout << "As primeiras " << n << " datas:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			cout << lista[i].toString() << endl;
+		}
+	}
 };
 
 class ListaSalarios : public Lista
