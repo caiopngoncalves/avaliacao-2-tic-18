@@ -335,6 +335,40 @@ public:
 			cout << "O maior salario eh: " << maiorSalario << endl;
 		}
 	}
+
+  void listarEmOrdem() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de salários está vazia." << endl;
+			return;
+		}
+
+		cout << "Lista de salários em ordem crescente:" << endl;
+		sort(lista.begin(), lista.end());
+
+		for (float &salario : lista)
+		{
+			cout << salario << endl;
+		}
+	}
+
+	void mostrarNPrimeiros() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de salários está vazia." << endl;
+			return;
+		}
+		int n;
+		cout << "Digite um valor n de idades: " << endl;
+		cin >> n;
+		cout << "Os primeiros " << n << " salários:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			cout << lista[i] << endl;
+		}
+	}
 };
 
 class ListaIdades : public Lista
