@@ -503,5 +503,7 @@ int main()
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
+		l->listarEmOrdem();
+		l->mostrarNPrimeiros();
 	}
 }
