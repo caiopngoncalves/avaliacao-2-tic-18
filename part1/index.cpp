@@ -5,38 +5,40 @@
 
 using namespace std;
 
-class Data
-{
-	int dia, mes, ano;
+class Data {
+    int dia, mes, ano;
 
 public:
-	/*
-	O m�todo abaixo retornar� -1 se d1 � anterior a d2
-	Retornar� 0 se d1 = d2
-	Retornar� +1 se d1 � posterior a d2
-	*/
-	static int compara(Data d1, Data d2)
-	{
-		return 0;
-	}
+    static int compara(Data d1, Data d2) {
+        if (d1.ano < d2.ano)
+            return -1;
+        else if (d1.ano > d2.ano)
+            return 1;
+        else if (d1.mes < d2.mes)
+            return -1;
+        else if (d1.mes > d2.mes)
+            return 1;
+        else if (d1.dia < d2.dia)
+            return -1;
+        else if (d1.dia > d2.dia)
+            return 1;
+        else
+            return 0;
+    }
 
-	Data(int _dia, int _mes, int _ano)
-	{
-		dia = _dia;
-		mes = _mes;
-		ano = _ano;
-	}
-	string toString()
-	{
-		string ret = "";
-		ret.append(to_string(dia));
-		ret.append("/");
-		ret.append(to_string(mes));
-		ret.append("/");
-		ret.append(to_string(ano));
-		return ret;
-	}
+    Data(int _dia, int _mes, int _ano) {
+        dia = _dia;
+        mes = _mes;
+        ano = _ano;
+    }
+
+    // Sobrecarga do operador de saída
+    friend ostream& operator<<(ostream& os, const Data& data) {
+        os << data.dia << "/" << data.mes << "/" << data.ano;
+        return os;
+    }
 };
+
 
 class Lista
 {
@@ -122,33 +124,60 @@ public:
     }
 };
 
-class ListaDatas : public Lista
-{
-	vector<Data> lista;
+class ListaDatas : public Lista {
+    vector<Data> lista;
 
 public:
-	/*
-	O m�todo abaixo pergunta ao usu�rios quantos
-	elementos v�o existir na lista e depois
-	solicita a digita��o de cada um deles
-	*/
-	void entradaDeDados()
-	{
-	}
+    ListaDatas() {} // Construtor padrão
 
-	void mostraMediana()
-	{
-		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
-	}
+    void entradaDeDados() override {
+        int n;
+        cout << "Deseja inserir quantas datas? " << endl;
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+            int dia, mes, ano;
+            cout << "Digite o dia (1-31): ";
+            cin >> dia;
+            cout << "Digite o mês (1-12): ";
+            cin >> mes;
+            cout << "Digite o ano: ";
+            cin >> ano;
+            Data data(dia, mes, ano);
+            lista.push_back(data);
+        }
+    }
 
-	void mostraMenor()
-	{
-		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
-	}
-	void mostraMaior()
-	{
-		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
-	}
+    void mostraMediana() override {
+        if (lista.empty()) {
+            cout << "A lista de datas está vazia." << endl;
+        } else {
+            // Ordena a lista de datas e exibe a data do meio (mediana)
+            sort(lista.begin(), lista.end(), Data::compara);
+            int meio = lista.size() / 2;
+            cout << "A mediana da lista de datas é: " << lista[meio] << endl;
+        }
+    }
+
+ void mostraMenor() override {
+        if (lista.empty()) {
+            cout << "A lista de datas está vazia." << endl;
+        } else {
+            // Ordena a lista de datas e exibe a primeira data cronologicamente
+            sort(lista.begin(), lista.end(), Data::compara);
+            cout << "A primeira data na ordem cronológica é: " << lista[0] << endl;
+        }
+    }
+
+    void mostraMaior() override {
+        if (lista.empty()) {
+            cout << "A lista de datas está vazia." << endl;
+        } else {
+            // Ordena a lista de datas em ordem reversa e exibe a última data cronologicamente
+            sort(lista.rbegin(), lista.rend(), Data::compara);
+            cout << "A última data na ordem cronológica é: " << lista[0] << endl;
+        }
+    }
+
 };
 
 class ListaSalarios : public Lista
