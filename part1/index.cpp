@@ -233,37 +233,36 @@ public:
 		}
 		else
 		{
-			int meio = tamanhoVetor / 2;
-			cout << "O valor da mediana eh: " << lista[meio] << endl;
+			int auxiliar = (tamanhoVetor - 1) / 2;
+			cout << "O valor da mediana e: " << lista[auxiliar];
 		}
 	}
 
-	void mostraMenor() override
+	void mostraMenor()
 	{
 		cout << "Aqui vai mostrar o menor dos salarios" << endl;
-		if (lista.empty())
+		int menor = 0, auxiliar = 0;
+		for (int elemento : lista)
 		{
-			cout << "A lista de salários está vazia." << endl;
+			if (elemento <= menor)
+			{
+				menor = elemento;
+			}
 		}
-		else
-		{
-			float menorSalario = *min_element(lista.begin(), lista.end());
-			cout << "O menor salario eh: " << menorSalario << endl;
-		}
+		cout << "O menor elemento é: " << menor;
 	}
-
-	void mostraMaior() override
+	void mostraMaior()
 	{
 		cout << "aqui vai mostrar o maior dos salarios" << endl;
-		if (lista.empty())
+		int maior = 0, auxiliar = 0;
+		for (int elemento : lista)
 		{
-			cout << "A lista de salários está vazia." << endl;
+			if (elemento >= maior)
+			{
+				maior = elemento;
+			}
 		}
-		else
-		{
-			float maiorSalario = *max_element(lista.begin(), lista.end());
-			cout << "O maior salario eh: " << maiorSalario << endl;
-		}
+		cout << "O maior elemento é: " << maior;
 	}
 };
 
@@ -272,7 +271,12 @@ class ListaIdades : public Lista
 	vector<int> lista;
 
 public:
-	void entradaDeDados() override
+	/*
+O m�todo abaixo pergunta ao usu�rios quantos
+elementos v�o existir na lista e depois
+solicita a digita��o de cada um deles
+*/
+	void entradaDeDados()
 	{
 		int num;
 		int n;
@@ -290,54 +294,45 @@ public:
 	{
 		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
 		int tamanhoVetor = lista.size();
-		if (tamanhoVetor == 0)
-		{
-			cout << "A lista de idades está vazia." << endl;
-			return;
-		}
-
-		sort(lista.begin(), lista.end());
-
 		if (tamanhoVetor % 2 == 0)
 		{
-			int meio1 = tamanhoVetor / 2 - 1;
-			int meio2 = tamanhoVetor / 2;
-			int mediana = (lista[meio1] + lista[meio2]) / 2;
-			cout << "O valor da mediana eh: " << mediana << endl;
+			int auxiliar = tamanhoVetor / 2;
+			int auxiliar = (lista[auxiliar] + lista[auxiliar - 1]) / 2;
+			cout << "O valor da mediana é: " << auxiliar;
 		}
 		else
 		{
-			int meio = tamanhoVetor / 2;
-			cout << "O valor da mediana e: " << lista[meio] << endl;
+			int auxiliar = (tamanhoVetor - 1) / 2;
+			cout << "O valor da mediana e: " << lista[auxiliar];
 		}
 	}
 
 	void mostraMenor() override
 	{
 		cout << "Aqui vai mostrar a menor das idades" << endl;
-		if (lista.empty())
+		int menor = 0, auxiliar = 0;
+		for (int elemento : lista)
 		{
-			cout << "A lista de idades está vazia." << endl;
+			if (elemento <= menor)
+			{
+				menor = elemento;
+			}
 		}
-		else
-		{
-			int menorIdade = *min_element(lista.begin(), lista.end());
-			cout << "A menor idade eh: " << menorIdade << endl;
-		}
+		cout << "O menor elemento é: " << menor;
 	}
 
 	void mostraMaior() override
 	{
 		cout << "aqui vai mostrar a maior das idades" << endl;
-		if (lista.empty())
+		int maior = 0, auxiliar = 0;
+		for (int elemento : lista)
 		{
-			cout << "A lista de idades está vazia." << endl;
+			if (elemento >= maior)
+			{
+				maior = elemento;
+			}
 		}
-		else
-		{
-			int maiorIdade = *max_element(lista.begin(), lista.end());
-			cout << "A maior idade eh: " << maiorIdade << endl;
-		}
+		cout << "O maior elemento é: " << maior;
 	}
 };
 
