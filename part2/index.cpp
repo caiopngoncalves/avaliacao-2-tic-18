@@ -54,6 +54,8 @@ public:
 	virtual void mostraMediana() = 0;
 	virtual void mostraMenor() = 0;
 	virtual void mostraMaior() = 0;
+	virtual void listarEmOrdem() = 0;
+	virtual void mostrarNPrimeiros() = 0;
 };
 
 class ListaNomes : public Lista
@@ -116,6 +118,38 @@ public:
 		{
 			string maiorNome = *max_element(lista.begin(), lista.end());
 			cout << "O ultimo nome alfabeticamente e: " << maiorNome << endl;
+		}
+	}
+	void listarEmOrdem() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de nomes está vazia." << endl;
+			return;
+		}
+
+		cout << "Lista de nomes em ordem alfabética:" << endl;
+		sort(lista.begin(), lista.end());
+		for (string &nome : lista)
+		{
+			cout << nome << endl;
+		}
+	}
+	void mostrarNPrimeiros() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de nomes está vazia." << endl;
+			return;
+		}
+
+		int n;
+		cout << "Digite um valor n de nomes: " << endl;
+		cin >> n;
+		cout << "Os primeiros " << n << " nomes:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			cout << lista[i] << endl;
 		}
 	}
 };
