@@ -171,7 +171,7 @@ public:
 			int dia, mes, ano;
 			cout << "Digite o dia (1-31): ";
 			cin >> dia;
-			cout << "Digite o mês (1-12): ";
+			cout << "Digite o mes (1-12): ";
 			cin >> mes;
 			cout << "Digite o ano: ";
 			cin >> ano;
