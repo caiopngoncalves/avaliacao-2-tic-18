@@ -8,13 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-<<<<<<< HEAD
-      "cwd": "c:/Users/Renata Bamberg/Desktop/Cepedi/avaliacao-2-tic-18/part1",
-      "program": "c:/Users/Renata Bamberg/Desktop/Cepedi/avaliacao-2-tic-18/part1/build/Debug/outDebug",
-=======
       "cwd": ".",
       "program": "build/Debug/outDebug",
->>>>>>> marcos
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
