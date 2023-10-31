@@ -185,11 +185,7 @@ class ListaSalarios : public Lista
 	vector<float> lista;
 
 public:
-	/*
-	O m�todo abaixo pergunta ao usu�rios quantos
-	elementos v�o existir na lista e depois
-	solicita a digita��o de cada um deles
-	*/
+	
 	void entradaDeDados()
 	{int num;
 		do {
@@ -200,15 +196,16 @@ public:
 	}
 
 	void mostraMediana()
-	{cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
+	{   int auxiliar;                                                
+        cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
 		int tamanhoVetor=lista.size();
 		if (tamanhoVetor %2 == 0){ 
-		int auxiliar = tamanhoVetor/2;
+		auxiliar = tamanhoVetor/2;
 		auxiliar = (lista[auxiliar] + lista[auxiliar-1])/2; 
 		cout<< "O valor da mediana é: "<<auxiliar; 
 		}
 else {
-			int auxiliar= (tamanhoVetor-1)/2;
+			auxiliar= (tamanhoVetor-1)/2;
 			cout<< "O valor da mediana e: "<<lista[auxiliar];
 		}
 	
@@ -243,11 +240,7 @@ class ListaIdades : public Lista
 	vector<int> lista;
 
 public:
-	/*
-O m�todo abaixo pergunta ao usu�rios quantos
-elementos v�o existir na lista e depois
-solicita a digita��o de cada um deles
-*/
+
 	void entradaDeDados()
 	{
 		int num;
