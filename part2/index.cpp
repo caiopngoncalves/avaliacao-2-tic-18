@@ -336,7 +336,7 @@ public:
 		}
 	}
 
-  void listarEmOrdem() override
+	void listarEmOrdem() override
 	{
 		if (lista.empty())
 		{
@@ -441,6 +441,39 @@ public:
 		{
 			int maiorIdade = *max_element(lista.begin(), lista.end());
 			cout << "A maior idade eh: " << maiorIdade << endl;
+		}
+	}
+	void listarEmOrdem() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de idades está vazia." << endl;
+			return;
+		}
+
+		cout << "Lista de idades em ordem crescente:" << endl;
+		sort(lista.begin(), lista.end());
+
+		for (int &idade : lista)
+		{
+			cout << idade << endl;
+		}
+	}
+
+	void mostrarNPrimeiros() override
+	{
+		if (lista.empty())
+		{
+			cout << "A lista de idades está vazia." << endl;
+			return;
+		}
+		int n;
+		cout << "Digite um valor n de idades: " << endl;
+		cin >> n;
+		cout << "As primeiras " << n << " idades:" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			cout << lista[i] << endl;
 		}
 	}
 };
