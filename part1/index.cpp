@@ -204,7 +204,7 @@ public:
 		int tamanhoVetor=lista.size();
 		if (tamanhoVetor %2 == 0){ 
 		int auxiliar = tamanhoVetor/2;
-		int auxiliar = (lista[auxiliar] + lista[auxiliar-1])/2; 
+		auxiliar = (lista[auxiliar] + lista[auxiliar-1])/2; 
 		cout<< "O valor da mediana é: "<<auxiliar; 
 		}
 else {
@@ -216,7 +216,7 @@ else {
 
 	void mostraMenor()
 	{cout << "Aqui vai mostrar o menor dos salarios" << endl;
-		int menor=0, auxiliar=0; 
+		int menor=0; 
 		for (int elemento : lista) {
 			if (elemento<=menor){
 				menor = elemento;
@@ -227,7 +227,7 @@ else {
 	}
 	void mostraMaior()
 	{cout << "aqui vai mostrar o maior dos salarios" << endl;
-		int maior=0, auxiliar=0; 
+		int maior=0; 
 		for (int elemento : lista) {
 			if (elemento>=maior){
 				maior = elemento;
@@ -265,7 +265,7 @@ solicita a digita��o de cada um deles
 		int tamanhoVetor=lista.size();
 		if (tamanhoVetor %2 == 0){ 
 		int auxiliar = tamanhoVetor/2;
-		int auxiliar = (lista[auxiliar] + lista[auxiliar-1])/2; 
+		auxiliar = (lista[auxiliar] + lista[auxiliar-1])/2; 
 		cout<< "O valor da mediana é: "<<auxiliar; 
 		} else {
 			int auxiliar= (tamanhoVetor-1)/2;
@@ -276,7 +276,7 @@ solicita a digita��o de cada um deles
 	void mostraMenor()
 	{
 		cout << "Aqui vai mostrar a menor das idades" << endl;
-		int menor=0, auxiliar=0; 
+		int menor=0; 
 		for (int elemento : lista) {
 			if (elemento<=menor){
 				menor = elemento;
@@ -287,7 +287,7 @@ solicita a digita��o de cada um deles
 	void mostraMaior()
 	{
 		cout << "aqui vai mostrar a maior das idades" << endl;
-		int maior=0, auxiliar=0; 
+		int maior=0; 
 		for (int elemento : lista) {
 			if (elemento>=maior){
 				maior = elemento;
