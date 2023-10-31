@@ -115,7 +115,7 @@ public:
 		else
 		{
 			string maiorNome = *max_element(lista.begin(), lista.end());
-			cout << "O ultimo nome alfabeticamente e: " << maiorNome << endl;
+			cout << "O ultimo nome alfabeticamente: " << maiorNome << endl;
 		}
 	}
 };
@@ -137,7 +137,7 @@ public:
 			int dia, mes, ano;
 			cout << "Digite o dia (1-31): ";
 			cin >> dia;
-			cout << "Digite o mês (1-12): ";
+			cout << "Digite o mes (1-12): ";
 			cin >> mes;
 			cout << "Digite o ano: ";
 			cin >> ano;
@@ -150,7 +150,7 @@ public:
 	{
 		if (lista.empty())
 		{
-			cout << "A lista de datas está vazia." << endl;
+			cout << "A lista de datas esta vazia." << endl;
 		}
 		else
 		{
@@ -158,7 +158,7 @@ public:
 				 { return Data::compara(d1, d2) < 0; });
 
 			int meio = lista.size() / 2;
-			cout << "A mediana é: " << lista[meio].toString() << endl;
+			cout << "Mediana da lista de idades: " << lista[meio].toString() << endl;
 		}
 	}
 
@@ -166,14 +166,14 @@ public:
 	{
 		if (lista.empty())
 		{
-			cout << "A lista de datas está vazia." << endl;
+			cout << "A lista de datas esta vazia." << endl;
 		}
 		else
 		{
 			sort(lista.begin(), lista.end(), [](const Data &d1, const Data &d2)
 				 { return Data::compara(d1, d2) < 0; });
 
-			cout << "A primeira data cronologicamente é: " << lista.front().toString() << endl;
+			cout << "A primeira data cronologicamente: " << lista.front().toString() << endl;
 		}
 	}
 
@@ -181,14 +181,14 @@ public:
 	{
 		if (lista.empty())
 		{
-			cout << "A lista de datas está vazia." << endl;
+			cout << "A lista de datas esta vazia." << endl;
 		}
 		else
 		{
 			sort(lista.begin(), lista.end(), [](const Data &d1, const Data &d2)
 				 { return Data::compara(d1, d2) > 0; });
 
-			cout << "A última data cronologicamente é: " << lista.front().toString() << endl;
+			cout << "A ultima data cronologicamente: " << lista.front().toString() << endl;
 		}
 	}
 };
@@ -214,11 +214,10 @@ public:
 
 	void mostraMediana() override
 	{
-		cout << "Aqui vai mostrar a mediana da lista de salarios" << endl;
 		int tamanhoVetor = lista.size();
 		if (tamanhoVetor == 0)
 		{
-			cout << "A lista de salários está vazia." << endl;
+			cout << "A lista de salários esta vazia." << endl;
 			return;
 		}
 
@@ -229,40 +228,38 @@ public:
 			int meio1 = tamanhoVetor / 2 - 1;
 			int meio2 = tamanhoVetor / 2;
 			float mediana = (lista[meio1] + lista[meio2]) / 2.0;
-			cout << "O valor da mediana eh: " << mediana << endl;
+			cout << "Mediana da lista de idades: " << mediana << endl;
 		}
 		else
 		{
 			int meio = tamanhoVetor / 2;
-			cout << "O valor da mediana eh: " << lista[meio] << endl;
+			cout << "Mediana da lista de idades: " << lista[meio] << endl;
 		}
 	}
 
 	void mostraMenor() override
 	{
-		cout << "Aqui vai mostrar o menor dos salarios" << endl;
 		if (lista.empty())
 		{
-			cout << "A lista de salários está vazia." << endl;
+			cout << "A lista de salarios está vazia." << endl;
 		}
 		else
 		{
 			float menorSalario = *min_element(lista.begin(), lista.end());
-			cout << "O menor salario eh: " << menorSalario << endl;
+			cout << "O menor salario: " << menorSalario << endl;
 		}
 	}
 
 	void mostraMaior() override
 	{
-		cout << "aqui vai mostrar o maior dos salarios" << endl;
 		if (lista.empty())
 		{
-			cout << "A lista de salários está vazia." << endl;
+			cout << "A lista de salários esta vazia." << endl;
 		}
 		else
 		{
 			float maiorSalario = *max_element(lista.begin(), lista.end());
-			cout << "O maior salario eh: " << maiorSalario << endl;
+			cout << "O maior salario: " << maiorSalario << endl;
 		}
 	}
 };
@@ -288,7 +285,6 @@ public:
 
 	void mostraMediana() override
 	{
-		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
 		int tamanhoVetor = lista.size();
 		if (tamanhoVetor == 0)
 		{
@@ -303,18 +299,17 @@ public:
 			int meio1 = tamanhoVetor / 2 - 1;
 			int meio2 = tamanhoVetor / 2;
 			int mediana = (lista[meio1] + lista[meio2]) / 2;
-			cout << "O valor da mediana eh: " << mediana << endl;
+			cout << "Mediana da lista de idades: " << mediana << endl;
 		}
 		else
 		{
 			int meio = tamanhoVetor / 2;
-			cout << "O valor da mediana e: " << lista[meio] << endl;
+			cout << "Mediana da lista de idades: " << lista[meio] << endl;
 		}
 	}
 
 	void mostraMenor() override
 	{
-		cout << "Aqui vai mostrar a menor das idades" << endl;
 		if (lista.empty())
 		{
 			cout << "A lista de idades está vazia." << endl;
@@ -322,13 +317,12 @@ public:
 		else
 		{
 			int menorIdade = *min_element(lista.begin(), lista.end());
-			cout << "A menor idade eh: " << menorIdade << endl;
+			cout << "A menor idade: " << menorIdade << endl;
 		}
 	}
 
 	void mostraMaior() override
 	{
-		cout << "aqui vai mostrar a maior das idades" << endl;
 		if (lista.empty())
 		{
 			cout << "A lista de idades está vazia." << endl;
@@ -336,7 +330,7 @@ public:
 		else
 		{
 			int maiorIdade = *max_element(lista.begin(), lista.end());
-			cout << "A maior idade eh: " << maiorIdade << endl;
+			cout << "A maior idade: " << maiorIdade << endl;
 		}
 	}
 };
